@@ -29,7 +29,7 @@ public:
     void build();
     TileType tileAt(int col, int row) const;
     void setTile(int col, int row, TileType type);
-    bool isSolid(TileType type) const;
+    static bool isSolid(TileType type) ;
     bool collidesWithRect(float x, float y, float size) const;
 
 private:

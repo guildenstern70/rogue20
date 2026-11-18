@@ -25,7 +25,7 @@ public:
 
 private:
     void update(float dt);
-    void render();
+    void render() const;
 
     SDL_Window* window_ = nullptr;
     SDL_Renderer* renderer_ = nullptr;

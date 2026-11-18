@@ -10,6 +10,7 @@
 #include "player.h"
 
 #include <SDL3/SDL.h>
+#include <random>
 
 #include "config.h"
 #include "world_map.h"
@@ -19,6 +20,14 @@ namespace rogue20 {
 void Player::spawn() {
     x = 3.0f * kTileSize + (kTileSize - size) * 0.5f;
     y = 3.0f * kTileSize + (kTileSize - size) * 0.5f;
+
+    std::random_device rd;
+    std::mt19937 rng(rd());
+    std::uniform_int_distribution<int> dist(10, 20);
+    st = dist(rng);
+    dx = dist(rng);
+    iq = dist(rng);
+    ht = dist(rng);
 }
 
 void Player::update(float dt, const WorldMap& map) {

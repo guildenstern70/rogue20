@@ -10,6 +10,7 @@
 #pragma once
 
 #include <cstdint>
+#include <string>
 
 namespace rogue20 {
 
@@ -23,6 +24,12 @@ enum class Direction : std::uint8_t {
 };
 
 struct Player {
+    std::string name = "Hero";
+    int st = 10;
+    int dx = 10;
+    int iq = 10;
+    int ht = 10;
+
     float x = 0.0f;
     float y = 0.0f;
     float size = 22.0f;

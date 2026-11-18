@@ -22,7 +22,7 @@ void setDrawColor(SDL_Renderer* renderer, Color c) {
     SDL_SetRenderDrawColor(renderer, c.r, c.g, c.b, c.a);
 }
 
-void renderTile(SDL_Renderer* renderer, TileType type, int col, int row,
+void renderTile(SDL_Renderer* renderer, const TileType type, const int col, const int row,
                 const SDL_FRect& rect, float worldTime) {
     switch (type) {
         case TileType::Grass: {
@@ -64,7 +64,7 @@ void renderTile(SDL_Renderer* renderer, TileType type, int col, int row,
 }  // namespace
 
 void renderWorld(SDL_Renderer* renderer, const WorldMap& map, float cameraX,
-                 float cameraY, float worldTime) {
+                 const float cameraY, const float worldTime) {
     const int startCol = std::max(0, static_cast<int>(cameraX) / kTileSize);
     const int endCol = std::min(
         kMapCols - 1, static_cast<int>(cameraX + kWindowWidth) / kTileSize);

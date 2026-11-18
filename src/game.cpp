@@ -78,7 +78,7 @@ void Game::update(float dt) {
     camera_.update(player_.x, player_.y, player_.size);
 }
 
-void Game::render() {
+void Game::render() const {
     SDL_SetRenderDrawColor(renderer_, 20, 20, 20, 255);
     SDL_RenderClear(renderer_);
 

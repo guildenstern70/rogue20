@@ -66,7 +66,7 @@ void WorldMap::setTile(int col, int row, TileType type) {
     }
 }
 
-bool WorldMap::isSolid(TileType type) const {
+bool WorldMap::isSolid(const TileType type) {
     return type == TileType::Rock || type == TileType::River;
 }
 

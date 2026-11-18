@@ -1,6 +1,6 @@
 # Rogue20
 
-**Rogue20** is a 2D roguelite game testbed written in **C++20** using **SDL3**.
+**Rogue20** is a 2D roguelite game testbed written in **C++20** using **SDL3**. It is inspired by classic roguelike games like **Rogue** and **Angband**.
 
 ## Features
 
