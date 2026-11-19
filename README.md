@@ -6,7 +6,7 @@
 
 - **2D Tile World**: Grass, solid rock formations, and an animated north-to-south flowing river with shallow crossings.
 - **Animated Warrior**: A warrior with a shield and sword featuring a 4-direction walking animation (North, South, East, West).
-- **Controls**: Move with **WASD** or **Arrow Keys**; press **Esc** or close the window to quit.
+- **Controls**: Move with **WASD** or **Arrow Keys**; press **Space** to swing your sword; press **Esc** or close the window to quit.
 - **Scrolling Viewport**: A `960x640` window that follows the player across a larger (`1728x1152`) level when approaching the viewport edges.
 
 ## Prerequisites

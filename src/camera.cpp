@@ -18,8 +18,8 @@ namespace rogue20 {
 void Camera::update(float targetX, float targetY, float targetSize) {
     if (targetX - x_ < kCameraMargin) {
         x_ = targetX - kCameraMargin;
-    } else if ((targetX + targetSize) - x_ > kWindowWidth - kCameraMargin) {
-        x_ = (targetX + targetSize) - (kWindowWidth - kCameraMargin);
+    } else if ((targetX + targetSize) - x_ > kViewportWidth - kCameraMargin) {
+        x_ = (targetX + targetSize) - (kViewportWidth - kCameraMargin);
     }
 
     if (targetY - y_ < kCameraMargin) {
@@ -28,7 +28,7 @@ void Camera::update(float targetX, float targetY, float targetSize) {
         y_ = (targetY + targetSize) - (kWindowHeight - kCameraMargin);
     }
 
-    x_ = std::clamp(x_, 0.0f, static_cast<float>(kWorldWidth - kWindowWidth));
+    x_ = std::clamp(x_, 0.0f, static_cast<float>(kWorldWidth - kViewportWidth));
     y_ = std::clamp(y_, 0.0f, static_cast<float>(kWorldHeight - kWindowHeight));
 }
 

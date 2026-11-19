@@ -14,6 +14,7 @@
 #include <iostream>
 
 #include "config.h"
+#include "hud_renderer.h"
 #include "player_renderer.h"
 #include "world_renderer.h"
 
@@ -56,9 +57,12 @@ void Game::run() {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_EVENT_QUIT) {
                 running = false;
-            } else if (event.type == SDL_EVENT_KEY_DOWN &&
-                       event.key.key == SDLK_ESCAPE) {
-                running = false;
+            } else if (event.type == SDL_EVENT_KEY_DOWN) {
+                if (event.key.key == SDLK_ESCAPE) {
+                    running = false;
+                } else if (event.key.key == SDLK_SPACE && !event.key.repeat) {
+                    player_.triggerSwing();
+                }
             }
         }
 
@@ -82,8 +86,13 @@ void Game::render() const {
     SDL_SetRenderDrawColor(renderer_, 20, 20, 20, 255);
     SDL_RenderClear(renderer_);
 
+    const SDL_Rect worldViewport{0, 0, kViewportWidth, kWindowHeight};
+    SDL_SetRenderViewport(renderer_, &worldViewport);
     renderWorld(renderer_, map_, camera_.x(), camera_.y(), worldTime_);
     renderPlayer(renderer_, player_, camera_.x(), camera_.y());
+
+    SDL_SetRenderViewport(renderer_, nullptr);
+    renderHud(renderer_, player_);
 
     SDL_RenderPresent(renderer_);
 }

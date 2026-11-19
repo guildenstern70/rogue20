@@ -13,6 +13,7 @@ add_executable(Rogue20
     src/world_renderer.cpp
     src/player.cpp
     src/player_renderer.cpp
+    src/hud_renderer.cpp
     src/camera.cpp
 )
 target_include_directories(Rogue20 PRIVATE src)

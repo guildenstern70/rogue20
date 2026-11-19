@@ -67,7 +67,7 @@ void renderWorld(SDL_Renderer* renderer, const WorldMap& map, float cameraX,
                  const float cameraY, const float worldTime) {
     const int startCol = std::max(0, static_cast<int>(cameraX) / kTileSize);
     const int endCol = std::min(
-        kMapCols - 1, static_cast<int>(cameraX + kWindowWidth) / kTileSize);
+        kMapCols - 1, static_cast<int>(cameraX + kViewportWidth) / kTileSize);
     const int startRow = std::max(0, static_cast<int>(cameraY) / kTileSize);
     const int endRow = std::min(
         kMapRows - 1, static_cast<int>(cameraY + kWindowHeight) / kTileSize);

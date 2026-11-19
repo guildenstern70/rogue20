@@ -28,9 +28,26 @@ void Player::spawn() {
     dx = dist(rng);
     iq = dist(rng);
     ht = dist(rng);
+    maxHp = st;
+    hp = maxHp;
+}
+
+void Player::triggerSwing() {
+    if (!isSwinging) {
+        isSwinging = true;
+        swingTime = 0.0f;
+    }
 }
 
 void Player::update(float dt, const WorldMap& map) {
+    if (isSwinging) {
+        swingTime += dt;
+        if (swingTime >= kSwingDuration) {
+            isSwinging = false;
+            swingTime = 0.0f;
+        }
+    }
+
     const bool* keys = SDL_GetKeyboardState(nullptr);
     float dx = 0.0f;
     float dy = 0.0f;
